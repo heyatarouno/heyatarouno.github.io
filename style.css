@@ -7,6 +7,7 @@ body {
   line-height: 1.8;
   background-color: #f7f5f2; /* やさしい背景色 */
   color: #333;
+  font-size: 1em; /* 基本サイズ */
 }
 
 /* タイトル */
@@ -44,14 +45,14 @@ h1 {
 /* クレジット */
 .credit {
   margin-top: 8px;
-  font-size: 0.75em;
+  font-size: 0.75em; /* PCでは小さめ */
   color: #777;
   text-align: center;
 }
 
 /* クレジット内リンク */
 .credit a {
-  color: blue;
+  color: #555; /* PCでは少し控えめな青系 */
   text-decoration: none;
 }
 
@@ -81,5 +82,23 @@ h1 {
   .image-box img {
     width: 100%;
     max-width: 300px;
+  }
+
+  /* 文字を少し大きく */
+  body {
+    font-size: 1.1em;
+  }
+
+  .text h2 {
+    font-size: 1.3em;
+  }
+
+  .credit {
+    font-size: 0.85em;
+  }
+
+  /* スマホではリンクを青く */
+  .credit a {
+    color: blue;
   }
 }
