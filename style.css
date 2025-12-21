@@ -1,33 +1,41 @@
-/* 全体設定 */
+/* =========================================
+   全体設定
+   ========================================= */
+* {
+  box-sizing: border-box; /* paddingを含めたサイズ計算にする */
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 40px 20px;
   line-height: 1.8;
   background-color: #f7f5f2; /* やさしい背景色 */
   color: #333;
-  font-size: 1em; /* 基本サイズ */
 }
 
-/* タイトル */
 h1 {
   text-align: center;
   margin-bottom: 60px;
+  color: #444;
 }
 
-/* キャラクター1人分のブロック */
+/* =========================================
+   キャラクターカード
+   ========================================= */
 .character {
   display: flex;
-  gap: 24px;
-  margin-bottom: 48px;
+  gap: 32px;
+  margin-bottom: 40px;
   align-items: flex-start;
   background-color: #ffffff;
-  padding: 24px;
-  border-radius: 16px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* ほんのり影 */
 }
 
-/* 画像＋クレジットまとめ */
+/* 画像エリア */
 .image-box {
   display: flex;
   flex-direction: column;
@@ -35,80 +43,90 @@ h1 {
   flex-shrink: 0;
 }
 
-/* キャラクター画像 */
 .image-box img {
-  width: 180px;
+  width: 200px;
   height: auto;
   border-radius: 12px;
+  object-fit: cover;
 }
 
-/* クレジット */
+/* クレジットとリンク */
 .credit {
-  margin-top: 8px;
-  font-size: 0.75em; /* PCでは小さめ */
+  margin-top: 12px;
+  font-size: 0.8em;
   color: #777;
   text-align: center;
 }
 
-/* クレジット内リンク */
-.credit a {
-  color: #555; /* PCでは少し控えめな青系 */
+/* リンクの色を具体的に指定して確実に変える */
+.character .image-box .credit a {
+  color: #0066cc; 
   text-decoration: none;
+  font-weight: bold;
 }
 
-/* ホバー時 */
-.credit a:hover {
+.character .image-box .credit a:hover {
   text-decoration: underline;
 }
 
-/* テキスト側 */
+/* テキストエリア */
 .text h2 {
   margin-top: 0;
   margin-bottom: 12px;
+  color: #222;
+  border-bottom: 2px solid #f7f5f2;
+  display: inline-block;
+  padding-bottom: 4px;
 }
 
 .text p {
   margin: 0;
+  font-size: 1rem;
 }
 
-/* スマホ対応 */
+/* =========================================
+   スマホ対応 (600px以下)
+   ========================================= */
 @media (max-width: 600px) {
-  /* レイアウトを縦並びに */
-  .character {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 30px; /* PCより余白を広く */
-    gap: 30px;     /* 画像とテキストの間隔も広く */
+  body {
+    padding: 20px 15px;
   }
 
-  /* 画像を大きく */
+  .character {
+    flex-direction: column; /* 縦並びに変更 */
+    align-items: center;
+    text-align: left; /* 文章は左寄せが読みやすい */
+    padding: 25px;
+    gap: 20px;
+  }
+
+  /* 画像をスマホで見やすく調整 */
   .image-box img {
     width: 100%;
-    max-width: 400px; /* PCより大きめ */
-    border-radius: 16px;
+    max-width: 280px; 
   }
 
-  /* 文字サイズを大きく */
-  body {
-    font-size: 1.2em;
-  }
-
+  /* スマホでの文字サイズ・読みやすさ強化 */
   .text h2 {
-    font-size: 1.5em;
-    margin-bottom: 16px;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    display: block;
+    text-align: center; /* 名前は中央に */
   }
 
   .text p {
-    font-size: 1.2em;
+    font-size: 1.1rem; /* 文字を大きく */
+    line-height: 1.7;
   }
 
-  /* クレジットも大きくリンク青 */
-  .credit {
-    font-size: 0.95em;
+  /* スマホ版のリンク：よりハッキリした青と下線 */
+  .character .image-box .credit {
+    font-size: 1rem;
+    margin-top: 15px;
   }
 
-  .credit a {
-    color: blue;
+  .character .image-box .credit a {
+    color: #0000ee !important; /* 強制的にリンク色の青にする */
+    text-decoration: underline;
   }
 }
