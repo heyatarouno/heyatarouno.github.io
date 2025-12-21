@@ -73,35 +73,41 @@ h1 {
 
 /* スマホ対応 */
 @media (max-width: 600px) {
+  /* レイアウトを縦並びに */
   .character {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 30px; /* PCより余白を広く */
+    gap: 30px;     /* 画像とテキストの間隔も広く */
   }
 
+  /* 画像を大きく */
   .image-box img {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px; /* PCより大きめ */
+    border-radius: 16px;
   }
 
-  /* 文字サイズを調整 */
+  /* 文字サイズを大きく */
   body {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 
   .text h2 {
-    font-size: 1.3em;
+    font-size: 1.5em;
+    margin-bottom: 16px;
   }
 
   .text p {
-    font-size: 1.05em; /* 追加: 説明文も大きく */
+    font-size: 1.2em;
   }
 
+  /* クレジットも大きくリンク青 */
   .credit {
-    font-size: 0.85em;
+    font-size: 0.95em;
   }
 
-  /* スマホではリンクを青く */
   .credit a {
     color: blue;
   }
