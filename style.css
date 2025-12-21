@@ -84,13 +84,17 @@ h1 {
     max-width: 300px;
   }
 
-  /* 文字を少し大きく */
+  /* 文字サイズを調整 */
   body {
     font-size: 1.1em;
   }
 
   .text h2 {
     font-size: 1.3em;
+  }
+
+  .text p {
+    font-size: 1.05em; /* 追加: 説明文も大きく */
   }
 
   .credit {
