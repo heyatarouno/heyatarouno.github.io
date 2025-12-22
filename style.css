@@ -2,7 +2,7 @@
    全体設定
    ========================================= */
 * {
-  box-sizing: border-box; /* paddingを含めたサイズ計算にする */
+  box-sizing: border-box;
 }
 
 body {
@@ -17,8 +17,27 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px; /* 説明文を近づけるため少し減らす */
   color: #444;
+}
+
+/* --- 追加：タイトル下の説明文 --- */
+.lead-text {
+  text-align: center;
+  margin: 0 auto 50px;
+  background-color: #ffffff;
+  display: table; /* 文字の長さに合わせる */
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  color: #666;
+  border: 1px solid #e8e5e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  font-weight: bold;
+}
+
+.lead-text span {
+  margin-right: 5px;
 }
 
 /* =========================================
@@ -32,7 +51,7 @@ h1 {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* ほんのり影 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* 画像エリア */
@@ -41,13 +60,26 @@ h1 {
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
+  width: 200px;
 }
 
 .image-box img {
-  width: 200px;
+  width: 100%;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
+}
+
+/* 画像リンクの演出 */
+.character-link {
+  display: block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  line-height: 0;
+}
+
+.character-link:hover {
+  opacity: 0.8;
+  transform: scale(1.05); /* マウスを乗せると少し拡大 */
 }
 
 /* クレジットとリンク */
@@ -58,7 +90,6 @@ h1 {
   text-align: center;
 }
 
-/* リンクの色を具体的に指定して確実に変える */
 .character .image-box .credit a {
   color: #0066cc; 
   text-decoration: none;
@@ -70,6 +101,11 @@ h1 {
 }
 
 /* テキストエリア */
+.text {
+  flex: 1;
+  min-width: 0;
+}
+
 .text h2 {
   margin-top: 0;
   margin-bottom: 12px;
@@ -92,58 +128,50 @@ h1 {
     padding: 20px 15px;
   }
 
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .lead-text {
+    font-size: 0.9rem;
+    width: 100%; /* スマホでは幅いっぱいにする */
+    margin-bottom: 30px;
+    padding: 12px 10px;
+    border-radius: 12px; /* スマホでは角丸を少し抑える */
+  }
+
   .character {
-    flex-direction: column; /* 縦並びに変更 */
+    flex-direction: column;
     align-items: center;
-    text-align: left; /* 文章は左寄せが読みやすい */
     padding: 25px;
     gap: 20px;
   }
 
-  /* 画像をスマホで見やすく調整 */
-  .image-box img {
+  .image-box {
     width: 100%;
     max-width: 280px; 
   }
 
-  /* スマホでの文字サイズ・読みやすさ強化 */
   .text h2 {
     font-size: 1.5rem;
     margin-top: 10px;
     display: block;
-    text-align: center; /* 名前は中央に */
+    text-align: center;
   }
 
   .text p {
-    font-size: 1.1rem; /* 文字を大きく */
+    font-size: 1.1rem;
     line-height: 1.7;
   }
 
-  /* スマホ版のリンク：よりハッキリした青と下線 */
   .character .image-box .credit {
     font-size: 1rem;
     margin-top: 15px;
   }
 
   .character .image-box .credit a {
-    color: #0000ee !important; /* 強制的にリンク色の青にする */
+    color: #0000ee !important;
     text-decoration: underline;
   }
-}
-/* 画像リンクのホバー演出 */
-.character-link {
-  display: block;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  line-height: 0; /* 画像下の謎の隙間を消す */
-}
-
-/* マウスを乗せた時に少し薄く、少し大きくする */
-.character-link:hover {
-  opacity: 0.8;
-  transform: scale(1.03);
-}
-
-/* スマホでは画像がクリックしやすいよう、タップした瞬間だけ少し変化させる */
-.character-link:active {
-  opacity: 0.7;
 }
