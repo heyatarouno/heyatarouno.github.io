@@ -2,7 +2,7 @@
    全体設定
    ========================================= */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* paddingを含めたサイズ計算にする */
 }
 
 body {
@@ -17,16 +17,19 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 30px; /* 説明文を近づけるため少し減らす */
+  margin-bottom: 20px; /* 説明文との間隔 */
   color: #444;
 }
 
-/* --- 追加：タイトル下の説明文 --- */
+/* =========================================
+   タイトル下の説明文（中央揃え調整済み）
+   ========================================= */
 .lead-text {
-  text-align: center;
-  margin: 0 auto 50px;
+  display: block;          /* ブロック要素にする */
+  width: fit-content;      /* 文字の幅に合わせる */
+  margin: 0 auto 50px;     /* 左右autoで中央配置、下側に余白 */
+  text-align: center;      /* 中の文字も中央に */
   background-color: #ffffff;
-  display: table; /* 文字の長さに合わせる */
   padding: 10px 25px;
   border-radius: 50px;
   font-size: 0.95rem;
@@ -34,6 +37,7 @@ h1 {
   border: 1px solid #e8e5e0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
   font-weight: bold;
+  max-width: 90%;          /* 画面からはみ出さないようガード */
 }
 
 .lead-text span {
@@ -51,7 +55,7 @@ h1 {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* ほんのり影 */
 }
 
 /* 画像エリア */
@@ -74,12 +78,13 @@ h1 {
 .character-link {
   display: block;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  line-height: 0;
+  line-height: 0; /* 画像下の謎の隙間を消す */
 }
 
+/* マウスを乗せた時に少し大きくする */
 .character-link:hover {
   opacity: 0.8;
-  transform: scale(1.05); /* マウスを乗せると少し拡大 */
+  transform: scale(1.05);
 }
 
 /* クレジットとリンク */
@@ -90,6 +95,7 @@ h1 {
   text-align: center;
 }
 
+/* リンクの色を具体的に指定 */
 .character .image-box .credit a {
   color: #0066cc; 
   text-decoration: none;
@@ -130,48 +136,60 @@ h1 {
 
   h1 {
     font-size: 1.6rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   .lead-text {
-    font-size: 0.9rem;
-    width: 100%; /* スマホでは幅いっぱいにする */
     margin-bottom: 30px;
-    padding: 12px 10px;
-    border-radius: 12px; /* スマホでは角丸を少し抑える */
+    font-size: 0.9rem;
+    width: 95%; /* スマホでは少し横幅を広げる */
+    padding: 12px 15px;
   }
 
   .character {
-    flex-direction: column;
+    flex-direction: column; /* 縦並びに変更 */
     align-items: center;
+    text-align: left; /* 文章は左寄せが読みやすい */
     padding: 25px;
     gap: 20px;
   }
 
+  /* 画像をスマホで見やすく調整 */
   .image-box {
     width: 100%;
     max-width: 280px; 
   }
 
+  .image-box img {
+    width: 100%;
+  }
+
+  /* スマホでの文字サイズ・読みやすさ強化 */
   .text h2 {
     font-size: 1.5rem;
     margin-top: 10px;
     display: block;
-    text-align: center;
+    text-align: center; /* 名前は中央に */
   }
 
   .text p {
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* 文字を大きく */
     line-height: 1.7;
   }
 
+  /* スマホ版のクレジットリンク */
   .character .image-box .credit {
     font-size: 1rem;
     margin-top: 15px;
   }
 
   .character .image-box .credit a {
-    color: #0000ee !important;
+    color: #0000ee !important; /* 確実にリンク色の青にする */
     text-decoration: underline;
   }
+}
+
+/* スマホでのタップ時の演出 */
+.character-link:active {
+  opacity: 0.7;
 }
