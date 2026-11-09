@@ -1,200 +1,67 @@
-:root {
-  --paper: #f6f2e9;
-  --ink: #2c2925;
-  --ink-soft: #756c5e;
-  --line: #ddd4c1;
-  --accent: #8a5638;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-  font-size: 16px;
-  line-height: 1.95;
-  -webkit-font-smoothing: antialiased;
+  background: #fff;
+  color: #000;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
 }
 
-a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: var(--line);
-  text-underline-offset: 3px;
-  transition: color .2s ease, text-decoration-color .2s ease;
+#wrap {
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 0 16px;
 }
 
-a:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
-}
+a { color: #2b5fa8; }
+a:visited { color: #7a4c9a; }
+a:hover { color: #d0563b; }
 
-a:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-/* ---------- header ---------- */
-
-.site-header {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 104px 24px 56px;
-  border-bottom: 1px solid var(--line);
-}
-
-.site-header .kicker {
-  margin: 0 0 14px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: .32em;
-  color: var(--accent);
-  text-transform: uppercase;
-}
-
-.site-header h1 {
-  margin: 0 0 22px;
-  font-family: "Zen Old Mincho", serif;
-  font-weight: 700;
-  font-size: clamp(26px, 4vw, 36px);
-  letter-spacing: .05em;
-  line-height: 1.5;
-}
-
-.site-header .lead {
-  margin: 0;
-  max-width: 46em;
-  color: var(--ink-soft);
-  font-size: 14.5px;
-}
-
-/* ---------- character list ---------- */
-
-main {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 24px;
-  counter-reset: character;
-}
-
-.character {
-  counter-increment: character;
-  display: flex;
-  gap: 52px;
-  align-items: flex-start;
-  padding: 68px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.character:last-child {
-  border-bottom: none;
-}
-
-/* 偶数番目だけ画像とテキストの左右を自動で入れ替える */
-.character:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.character__figure {
-  flex: 0 0 268px;
-  margin: 0;
-}
-
-.character__figure a {
-  display: block;
-  text-decoration: none;
-}
-
-.character__figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--line);
-  transition: transform .5s ease;
-}
-
-.character__figure a:hover img {
-  transform: scale(1.015);
-}
-
-.character__figure figcaption {
-  margin-top: 10px;
-  font-size: 12px;
-  color: var(--ink-soft);
-  letter-spacing: .02em;
-}
-
-.character__text {
-  flex: 1 1 auto;
-  min-width: 0;
-  padding-top: 4px;
-}
-
-.character__text h2 {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
+h1 {
+  font-size: 20px;
   margin: 0 0 16px;
-  font-family: "Zen Old Mincho", serif;
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: .06em;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #000;
 }
 
-.character__text h2::before {
-  content: counter(character, decimal-leading-zero);
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: .1em;
-  color: var(--accent);
+.chara {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px dashed #bbb;
 }
 
-.character__text p {
-  margin: 0;
-  max-width: 42em;
-  font-size: 15px;
-  color: var(--ink);
+.chara img {
+  display: block;
+  width: 180px;
+  height: auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 4px;
 }
 
-/* ---------- footer ---------- */
+.chara img:hover { border-color: #888; }
 
-.site-footer {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 48px 24px 104px;
-  font-size: 12px;
-  color: var(--ink-soft);
+.txt { flex: 1; }
+
+.txt h2 {
+  font-size: 16px;
+  margin: 0 0 6px;
 }
 
-/* ---------- responsive ---------- */
+.txt h2::before {
+  content: "■";
+  color: #d0563b;
+  margin-right: 4px;
+}
 
-@media (max-width: 640px) {
-  .site-header {
-    padding: 64px 20px 40px;
-  }
+.txt p { margin: 0 0 8px; }
 
-  main {
-    padding: 0 20px;
-  }
+#footer {
+  margin-top: 32px;
+}
 
-  .character,
-  .character:nth-child(even) {
-    flex-direction: column;
-    gap: 20px;
-    padding: 44px 0;
-  }
-
-  .character__figure {
-    flex-basis: auto;
-    width: 100%;
-  }
+@media (max-width: 520px) {
+  .chara { flex-direction: column; gap: 10px; }
+  .chara img { width: 100%; max-width: 280px; }
 }
