@@ -1,83 +1,80 @@
+body {
+  margin: 0;
+  background: #f6f4ee;
+  color: #333;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>太郎の部屋 キャラクター紹介</title>
-<meta name="description" content="太郎の部屋のMVに登場するキャラクターの紹介ページ。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+#wrap {
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
 
-<header class="site-header">
-  <p class="kicker">Characters</p>
-  <h1>太郎の部屋 キャラクター紹介</h1>
-  <p class="lead">画像をクリックすると，そのキャラクターが登場するMVを見ることができます。</p>
-</header>
+a { color: #2b5fa8; }
+a:visited { color: #7a4c9a; }
+a:hover { color: #d0563b; }
 
-<main>
+h1 {
+  font-size: 20px;
+  margin: 0 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #333;
+}
 
-<article class="character">
-  <figure class="character__figure">
-    <a href="https://www.youtube.com/watch?v=fQjw6RN3v2w" target="_blank" rel="noopener">
-      <img src="images/char1.jpg" alt="ベル">
-    </a>
-    <figcaption>illustration by <a href="https://x.com/heyatarouno" target="_blank" rel="noopener">太郎の部屋</a></figcaption>
-  </figure>
-  <div class="character__text">
-    <h2>ベル</h2>
-    <p>マイペースな男の子。散歩中に気になるものを見つけると進路を勝手に変えたり，立ち止まって動かなくなったりする。犬種は不明だがテリア系っぽい。テンションが上がると真顔のままで暴れる不思議な子。</p>
-  </div>
-</article>
+.note {
+  margin: 0 0 32px;
+  font-size: 13px;
+  color: #666;
+}
 
-<article class="character">
-  <figure class="character__figure">
-    <a href="https://www.youtube.com/watch?v=fQjw6RN3v2w" target="_blank" rel="noopener">
-      <img src="images/char2.jpg" alt="ベルの飼い主">
-    </a>
-    <figcaption>illustration by <a href="https://x.com/heyatarouno" target="_blank" rel="noopener">太郎の部屋</a></figcaption>
-  </figure>
-  <div class="character__text">
-    <h2>ベルの飼い主</h2>
-    <p>ベルの散歩をめんどくさそうにしているが，本心ではベルとの生活を楽しんでいる。</p>
-  </div>
-</article>
+.chara {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px dashed #bbb;
+}
 
-<article class="character">
-  <figure class="character__figure">
-    <a href="https://www.youtube.com/watch?v=FuAC0kPovEE" target="_blank" rel="noopener">
-      <img src="images/char3.jpg" alt="ロウジーの女の子">
-    </a>
-    <figcaption>illustration by <a href="https://x.com/_miluha" target="_blank" rel="noopener">miluha</a></figcaption>
-  </figure>
-  <div class="character__text">
-    <h2>ロウジーの女の子</h2>
-    <p>日々の考え事をノートに書き留めている。消えてしまった誰かのことを想い続ける。</p>
-  </div>
-</article>
+.chara img {
+  display: block;
+  width: 180px;
+  height: auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 4px;
+}
 
-<article class="character">
-  <figure class="character__figure">
-    <a href="https://www.youtube.com/watch?v=RpF-Vuaymak" target="_blank" rel="noopener">
-      <img src="images/char4.jpg" alt="コノちゃん">
-    </a>
-    <figcaption>illustration by <a href="https://x.com/chomutegon" target="_blank" rel="noopener">ちょむてごん</a></figcaption>
-  </figure>
-  <div class="character__text">
-    <h2>コノちゃん</h2>
-    <p>天使の女の子。廃墟に家具を持ち込んで勝手に住んでいるが，多分犯罪。輪っかにネモフィラの花が咲いている。</p>
-  </div>
-</article>
+.chara img:hover { border-color: #888; }
 
-</main>
+.txt { flex: 1; }
 
-<footer class="site-footer">
-  <p>© 太郎の部屋</p>
-</footer>
+.txt h2 {
+  font-size: 16px;
+  margin: 0 0 6px;
+}
 
-</body>
-</html>
+.txt h2::before {
+  content: "■";
+  color: #d0563b;
+  margin-right: 4px;
+}
+
+.txt p { margin: 0 0 8px; }
+
+.credit {
+  font-size: 12px;
+  color: #888;
+}
+
+#footer {
+  margin-top: 32px;
+  font-size: 12px;
+  color: #888;
+}
+
+@media (max-width: 520px) {
+  .chara { flex-direction: column; gap: 10px; }
+  .chara img { width: 100%; max-width: 280px; }
+}
