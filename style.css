@@ -34,7 +34,8 @@ h1 {
 .chara img {
   display: block;
   width: 180px;
-  height: auto;
+  height: 180px;
+  object-fit: cover;
   background: #fff;
   border: 1px solid #ccc;
   padding: 4px;
@@ -63,5 +64,5 @@ h1 {
 
 @media (max-width: 520px) {
   .chara { flex-direction: column; gap: 10px; }
-  .chara img { width: 100%; max-width: 280px; }
+  .chara img { width: 100%; max-width: 280px; height: auto; aspect-ratio: 1 / 1; }
 }
